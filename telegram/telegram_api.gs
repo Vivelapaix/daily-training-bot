@@ -26,7 +26,8 @@ function sendText(chat_id, text, keyboard) {
             method: "sendMessage",
             chat_id: String(chat_id),
             text: text,
-            reply_markup: JSON.stringify(keyboard)
+            reply_markup: JSON.stringify(keyboard),
+            parse_mode: "HTML"
         }
     };
     let url = TELEGRAM_API;

@@ -1,7 +1,7 @@
 const USER_SECURITY_TABLE = 'user_security_table',
       USER_SHEET_ID = 'user_sheet_id',
       REGISTRATION_TEXT = 'registration_text',
-      USER_GMAIL_NAME = '';
+      USER_GMAIL_NAME = ''; -- paste admin gmail
 
 
 function createUserSecurityTable() {
@@ -107,10 +107,12 @@ function createUserTrainingProgram(chat_id, user_id) {
         var sheetObj = driver.getSheetByName(sheetName);
         if (!sheetObj) {
             driver.insertSheet(sheetName);
-        } else {
-            sheetObj.clear({ formatOnly: false, contentsOnly: true });
-        }
-        driver.getSheetByName(sheetName).appendRow(['Название упражнения', 'Количество повторений', 'Ссылка на технику', 'Комментарий']);
+            driver.getSheetByName(sheetName).appendRow(['Название упражнения', 'Количество повторений', 'Ссылка на технику', 'Комментарий']);
+        } 
+        // else {
+        //     sheetObj.clear({ formatOnly: false, contentsOnly: true });
+        // }
+        
 
         if (sheetName == 'Пример заполнения программы') {
             driver.getSheetByName(sheetName).appendRow(['Жим лежа', '10', 'https://www.youtube.com/watch?v=5OcDDlVxVto', 'Сконцентрируйся'])
